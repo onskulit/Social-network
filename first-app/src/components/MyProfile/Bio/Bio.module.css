@@ -1,0 +1,29 @@
+.container {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  height: 400px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.6rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list__item {
+  font-size: 1.2rem;
+  list-style: none;
+}

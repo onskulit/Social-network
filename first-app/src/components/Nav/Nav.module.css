@@ -1,0 +1,32 @@
+.nav {
+  grid-area: nav;
+  background-color: rgb(206, 202, 197);
+}
+
+.nav__list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav__item {
+  font-size: 1.3rem;
+  list-style: none;
+}
+
+.nav__link {
+  color: black;
+  transition: .2s;
+  text-decoration: none;
+}
+
+.nav__link_active {
+  background-color: rgb(94, 94, 94);
+  color: yellow;
+  cursor: default;
+}
+
+.nav__link:hover {
+  color: yellow;
+}
