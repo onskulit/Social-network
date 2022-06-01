@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';
-let activeClass = `${ styles.link_active }`;
 
 function Nav() {
   return (

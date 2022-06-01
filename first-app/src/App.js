@@ -13,7 +13,7 @@ function App() {
         <Nav />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path='/dialogs' element={ <Dialogs /> } />
+            <Route path='/dialogs/*' element={ <Dialogs /> } />
             <Route path='/myProfile' element={ <MyProfile /> } />
           </Routes>
         </div>
