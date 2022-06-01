@@ -1,10 +1,10 @@
 import styles from './Post.module.css';
 
-function Post() {
+function Post(props) {
   return (
     <div>
-      <h3>First post</h3>
-      <p>Post</p>
+      <h3>{ props.theme }</h3>
+      <p>{ props.text }</p>
     </div>
   );
 }

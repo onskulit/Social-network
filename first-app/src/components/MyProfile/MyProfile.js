@@ -6,7 +6,7 @@ import Posts from './Posts/Posts';
 function MyProfile() {
   return (
     <div className={styles.myProfile}>
-      <Bio />
+      <Bio age="24"/>
       <AddPost />
       <Posts />
     </div>

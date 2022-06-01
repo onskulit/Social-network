@@ -1,14 +1,41 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';
+let activeClass = `${ styles.link_active }`;
 
 function Nav() {
   return (
     <nav className={styles.nav}>
-      <ul className={styles.nav__list}>
-        <li className={styles.nav__item}><a href="##" className={`${styles.nav__link} ${styles.nav__link_active}`}>My page</a></li>
-        <li className={styles.nav__item}><a href="##" className={styles.nav__link}>Messages</a></li>
-        <li className={styles.nav__item}><a href="##" className={styles.nav__link}>Feed</a></li>
-        <li className={styles.nav__item}><a href="##" className={styles.nav__link}>Music</a></li>
-        <li className={styles.nav__item}><a href="##" className={styles.nav__link}>Settings</a></li>
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <NavLink to="/myProfile" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            My profile
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink to="/dialogs" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            Dialogs
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink to="/##" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            Feed
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink to="/##" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            Music
+          </NavLink>
+        </li>
+        <li className={styles.item}>
+          <NavLink to="/##" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            Settings
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

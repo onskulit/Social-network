@@ -3,30 +3,30 @@
   background-color: rgb(206, 202, 197);
 }
 
-.nav__list {
+.list {
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.nav__item {
+.item {
   font-size: 1.3rem;
   list-style: none;
 }
 
-.nav__link {
+.link {
   color: black;
   transition: .2s;
   text-decoration: none;
 }
 
-.nav__link_active {
+.link_active {
   background-color: rgb(94, 94, 94);
   color: yellow;
   cursor: default;
 }
 
-.nav__link:hover {
+.link:hover {
   color: yellow;
 }
