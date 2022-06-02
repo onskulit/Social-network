@@ -8,7 +8,7 @@ function AddPost(props) {
   const addPost = () => {
     const theme = newPostTheme.current.value;
     const text = newPostText.current.value;
-    props.addPost(theme,  text);
+    props.addPost(theme, text);
   }
 
   return (

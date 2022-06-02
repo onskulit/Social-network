@@ -1,6 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import state from './state';
-import { addPost, subscribe } from './state';
+import store from './store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -11,14 +10,14 @@ const rerenderEntireTree = () => {
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
     <React.StrictMode>
-      <App state={ state } addPost={ addPost } />
+      <App store= { store } />
     </React.StrictMode>
   );
 };
 
 rerenderEntireTree();
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 
