@@ -5,9 +5,9 @@ import Posts from './Posts/Posts';
 
 function MyProfile(props) {
   return (
-    <div className={styles.myProfile}>
+    <div className={styles.container}>
       <Bio age="24"/>
-      <AddPost />
+      <AddPost addPost={ props.addPost }/>
       <Posts posts={ props.posts }/>
     </div>
   );
