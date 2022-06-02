@@ -3,12 +3,12 @@ import Bio from './Bio/Bio';
 import styles from './MyProfile.module.css';
 import Posts from './Posts/Posts';
 
-function MyProfile() {
+function MyProfile(props) {
   return (
     <div className={styles.myProfile}>
       <Bio age="24"/>
       <AddPost />
-      <Posts />
+      <Posts posts={ props.posts }/>
     </div>
   );
 }

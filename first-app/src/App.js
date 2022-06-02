@@ -5,7 +5,7 @@ import MyProfile from './components/MyProfile/MyProfile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -13,8 +13,8 @@ function App() {
         <Nav />
         <div className="app-wrapper__content">
           <Routes>
-            <Route path='/dialogs/*' element={ <Dialogs /> } />
-            <Route path='/myProfile' element={ <MyProfile /> } />
+            <Route path='/dialogs/*' element={ <Dialogs persons={ props.state.persons }/> } />
+            <Route path='/myProfile' element={ <MyProfile posts={ props.state.posts }/> } />
           </Routes>
         </div>
       </div>
