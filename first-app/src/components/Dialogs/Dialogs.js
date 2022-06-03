@@ -5,7 +5,7 @@ import Persons from './Persons/Persons';
 function Dialogs(props) {
   return (
     <div className={styles.container}>
-      <Persons persons={ props.persons }/>
+      <Persons persons={ props.dialogsPage.persons }/>
       <Messages />
     </div>
   );

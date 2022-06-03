@@ -1,9 +1,7 @@
-import profileReducer from "./ProfileReducer";
-
-const ADD_POST = 'ADD_POST';
+import profileReducer from "./profileReducer";
 
 const store = {
-  state: {
+  _state: {
     profilePage: {
       posts: [
         {id: '1', theme: "First post", text: "Begin React learning 30.05.2022"},
@@ -22,10 +20,14 @@ const store = {
     ],
   },
 
+  get state () {
+    return this._state;
+  },
+
   _callSubscriber() {},
 
   dispatch (action) {
-    this.state.profilePage = profileReducer(this.state.profilePage, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
 
     this._callSubscriber();
   },
