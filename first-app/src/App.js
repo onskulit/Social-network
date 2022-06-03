@@ -13,8 +13,8 @@ function App(props) {
         <Nav />
         <div className="app-wrapper__content">
           <Routes>
+          <Route path='/myProfile' element={ <MyProfile profilePage={ props.store.state.profilePage } dispatch={ props.store.dispatch.bind(props.store) }/> } />
             <Route path='/dialogs/*' element={ <Dialogs persons={ props.store.state.persons }/> } />
-            <Route path='/myProfile' element={ <MyProfile posts={ props.store.state.posts } addPost={ props.store.addPost.bind(props.store) }/> } />
           </Routes>
         </div>
       </div>
