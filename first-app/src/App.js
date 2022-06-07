@@ -1,9 +1,9 @@
 import './App.css';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import MyProfile from './components/MyProfile/MyProfile';
-import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import MyProfileContainer from './components/MyProfile/MyProfileContainer';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 function App(props) {
   return (
@@ -12,8 +12,8 @@ function App(props) {
       <Nav />
       <div className="app-wrapper__content">
         <Routes>
-          <Route path='/myProfile' element={ <MyProfile profilePage={ props.store.getState().profilePage } dispatch={ props.store.dispatch.bind(props.store) }/> } />
-          <Route path='/dialogs/*' element={ <Dialogs dialogsPage={ props.store.getState().dialogsPage }/> } />
+          <Route path='/myProfile' element={ <MyProfileContainer /> } />
+          <Route path='/dialogs/*' element={ <DialogsContainer /> } />
         </Routes>
       </div>
     </div>

@@ -7,8 +7,8 @@ function MyProfile(props) {
   return (
     <div className={styles.container}>
       <Bio age="24"/>
-      <AddPost dispatch={ props.dispatch }/>
-      <Posts posts={ props.profilePage.posts }/>
+      <AddPost addPost={ props.addPost }/>
+      <Posts posts={ props.posts }/>
     </div>
   );
 }
