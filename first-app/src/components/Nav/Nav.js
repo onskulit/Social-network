@@ -18,6 +18,12 @@ function Nav() {
           </NavLink>
         </li>
         <li className={styles.item}>
+          <NavLink to="/users" 
+          className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
+            Users
+          </NavLink>
+        </li>
+        <li className={styles.item}>
           <NavLink to="/##" 
           className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
             Feed

@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import { Route, Routes } from 'react-router-dom';
 import MyProfileContainer from './components/MyProfile/MyProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 function App(props) {
   return (
@@ -14,6 +15,7 @@ function App(props) {
         <Routes>
           <Route path='/myProfile' element={ <MyProfileContainer /> } />
           <Route path='/dialogs/*' element={ <DialogsContainer /> } />
+          <Route path='/users/*' element={ <UsersContainer /> } />
         </Routes>
       </div>
     </div>
