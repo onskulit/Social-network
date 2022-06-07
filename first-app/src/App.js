@@ -7,18 +7,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App(props) {
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <Nav />
-        <div className="app-wrapper__content">
-          <Routes>
+    <div className="app-wrapper">
+      <Header />
+      <Nav />
+      <div className="app-wrapper__content">
+        <Routes>
           <Route path='/myProfile' element={ <MyProfile profilePage={ props.store.getState().profilePage } dispatch={ props.store.dispatch.bind(props.store) }/> } />
-            <Route path='/dialogs/*' element={ <Dialogs dialogsPage={ props.store.getState().dialogsPage }/> } />
-          </Routes>
-        </div>
+          <Route path='/dialogs/*' element={ <Dialogs dialogsPage={ props.store.getState().dialogsPage }/> } />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
