@@ -1,12 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const ADD_USERS = 'ADD_USERS';
+const ADD_PAGE = 'ADD_PAGE';
 
 const initialState = {
-  users: [
-    {id: '1', isFollowed: true, fullName: 'Dmitriy L', status: 'learning React', location: {country: 'Belarus', city: 'Minsk'}, img: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/865d2d0e-bac6-4a78-a0ed-17a87b285069/280x420'},
-    {id: '2', isFollowed: false, fullName: 'Dmitriy L', status: 'learning JS', location: {country: 'Russia', city: 'Moscow'}, img: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/865d2d0e-bac6-4a78-a0ed-17a87b285069/280x420'},
-  ],
+  users: [],
+  pageSize: 3,
+  totalUsersCount: 0,
+  currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -16,7 +18,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map( user => {
           if (user.id === action.userId) {
-            return {...user, isFollowed: true};
+            return {...user, followed: true};
           }
           return user;
         })
@@ -26,7 +28,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map( user => {
           if (user.id === action.userId) {
-            return {...user, isFollowed: false};
+            return {...user, followed: false};
           }
           return user;
         })
@@ -34,7 +36,17 @@ const usersReducer = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
+        users: [...action.users],
+      }
+    case ADD_USERS:
+      return {
+        ...state,
         users: [...state.users, ...action.users],
+      }
+    case ADD_PAGE:
+      return {
+        ...state,
+        currentPage: ++{...state}.currentPage,
       }
     default:
       return state;
@@ -44,5 +56,10 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({ type: FOLLOW, userId }); //AC - action creator
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId });
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
+export const addUsersAC = (users) => ({ type: ADD_USERS, users });
+export const addPageAC = () => ({ type: ADD_PAGE });
 
 export default usersReducer;
+
+/* {id: '1', isFollowed: true, fullName: 'Dmitriy L', status: 'learning React', location: {country: 'Belarus', city: 'Minsk'}, img: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/865d2d0e-bac6-4a78-a0ed-17a87b285069/280x420'},
+    {id: '2', isFollowed: false, fullName: 'Dmitriy L', status: 'learning JS', location: {country: 'Russia', city: 'Moscow'}, img: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/865d2d0e-bac6-4a78-a0ed-17a87b285069/280x420'}, */
