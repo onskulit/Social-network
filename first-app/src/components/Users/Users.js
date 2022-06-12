@@ -1,19 +1,23 @@
 import styles from './Users.module.css';
 import * as axios from 'axios';
+import Preloader from '../common/Preloader.js';
 
 function Users (props) {
   let pageCounter = props.totalUsersCount / props.pageSize;
   if (props.users.length === 0) {
+    props.toggleIsFetching(true);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.currentPage}&count=${props.pageSize}`).then(response => {
+      props.toggleIsFetching(false);
       props.setUsers(response.data.items);
     })
   }
 
   const addUsersLocal = () => {
+    props.toggleIsFetching(true);
     props.addPage();
-    console.log(props.currentPage);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${props.currentPage + 1}&count=${props.pageSize}`).then(response => { //TO FIX
-      props.addUsers(response.data.items);
+    props.toggleIsFetching(false);  
+    props.addUsers(response.data.items);
     })
   }
 
@@ -34,7 +38,7 @@ function Users (props) {
   return (
     <div>
       { usersJSX }
-      <button onClick={() => addUsersLocal()}>Show More</button>
+      { props.isFetching ? <Preloader /> : <button onClick={() => addUsersLocal()}>Show More</button> }
     </div>
   )
 }
