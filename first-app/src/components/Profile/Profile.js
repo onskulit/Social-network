@@ -1,9 +1,9 @@
 import AddPost from './AddPost/AddPost';
 import Bio from './Bio/Bio';
-import styles from './MyProfile.module.css';
+import styles from './Profile.module.css';
 import Posts from './Posts/Posts';
 
-function MyProfile(props) {
+function Profile(props) {
   return (
     <div className={styles.container}>
       <Bio age="24"/>
@@ -13,4 +13,4 @@ function MyProfile(props) {
   );
 }
 
-export default MyProfile;
+export default Profile;

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MyProfile from './MyProfile';
+import Profile from './Profile';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,6 @@ const MapDispatchToProps = (dispatch) => {
   }
 }
 
-const MyProfileContainer = connect(mapStateToProps, MapDispatchToProps)(MyProfile);
+const profileContainer = connect(mapStateToProps, MapDispatchToProps)(Profile);
 
-export default MyProfileContainer;
+export default profileContainer;

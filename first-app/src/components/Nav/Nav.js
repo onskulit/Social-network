@@ -6,7 +6,7 @@ function Nav() {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <NavLink to="/myProfile" 
+          <NavLink to="/profile" 
           className={({ isActive }) => isActive ? `${styles.link_active} ${styles.link}` : `${styles.link}`}>
             My profile
           </NavLink>
