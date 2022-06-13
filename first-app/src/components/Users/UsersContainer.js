@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching, getUsersThunkCreator } from '../../redux/usersReducer';
 import Users from './Users';
+import { WithAuthRedirect } from '../HOCs/WithAuthRedirect';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,7 +24,9 @@ const mapStateToProps = (state) => {
   }
 } */
 
+const AuthRedirectedComponent = WithAuthRedirect(Users); 
+
 const UsersContainer = connect(mapStateToProps, 
-  { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching, getUsersThunkCreator })(Users);
+  { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching, getUsersThunkCreator })(AuthRedirectedComponent);
 
 export default UsersContainer;

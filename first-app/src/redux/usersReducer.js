@@ -1,4 +1,4 @@
-import getUsers from '../api/api';
+import usersAPI from '../api/api';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -72,7 +72,7 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isF
 export const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
-     getUsers(currentPage, pageSize).then(data => {
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
        dispatch(toggleIsFetching(false));
        dispatch(setUsers(data.items));
      });
