@@ -1,3 +1,5 @@
+import getUsers from '../api/api';
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -66,6 +68,16 @@ export const setUsers = (users) => ({ type: SET_USERS, users });
 export const addUsers = (users) => ({ type: ADD_USERS, users });
 export const addPage = () => ({ type: ADD_PAGE });
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching: isFetching });
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+     getUsers(currentPage, pageSize).then(data => {
+       dispatch(toggleIsFetching(false));
+       dispatch(setUsers(data.items));
+     });
+   }
+} 
 
 export default usersReducer;
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching } from '../../redux/usersReducer';
+import { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching, getUsersThunkCreator } from '../../redux/usersReducer';
 import Users from './Users';
 
 const mapStateToProps = (state) => {
@@ -24,6 +24,6 @@ const mapStateToProps = (state) => {
 } */
 
 const UsersContainer = connect(mapStateToProps, 
-  { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching })(Users);
+  { follow, setUsers, unfollow, addUsers, addPage, toggleIsFetching, getUsersThunkCreator })(Users);
 
 export default UsersContainer;

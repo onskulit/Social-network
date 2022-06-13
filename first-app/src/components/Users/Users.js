@@ -7,11 +7,7 @@ import getUsers from '../../api/api';
 function Users (props) {
   let pageCounter = props.totalUsersCount / props.pageSize;
   if (props.users.length === 0) {
-    props.toggleIsFetching(true);
-    getUsers(props.currentPage, props.pageSize).then(data => {
-      props.toggleIsFetching(false);
-      props.setUsers(data.items);
-    })
+    props.getUsersThunkCreator(props.currentPage, props.pageSize);
   }
 
   const addUsersLocal = () => {

@@ -9,6 +9,7 @@ const initialState = {
     { id: "5", theme: "Fifth post", text: "add react-redux 07.06.2022" },
     { id: "6", theme: "6th post", text: "add Users page 07.06.2022" },
     { id: "7", theme: "7th post", text: "add pagination at Users page 09.06.2022" },
+    { id: "8", theme: "8th post", text: "use thunks 13.06.2022" },
   ],
 };
 
